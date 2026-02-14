@@ -2,6 +2,7 @@ var aoi = table.filter(ee.Filter.eq("id", 1));
 var startDate = "2023-01-01";
 var endDate = "2023-12-31";
 // Load Sentinel-1 GRD data
+
 var collection = ee.ImageCollection("COPERNICUS/S1_GRD")
   .filterDate(startDate, endDate)
   .filter(ee.Filter.listContains("transmitterReceiverPolarisation", "VH"))
@@ -11,6 +12,8 @@ var collection = ee.ImageCollection("COPERNICUS/S1_GRD")
   .filterBounds(aoi);
 print(collection);
 // Function to convert image to 32-bit integer
+
+
 var convertToBit = function (image) {
   return image.toInt();
 };
