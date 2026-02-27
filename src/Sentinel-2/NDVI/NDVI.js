@@ -18,7 +18,7 @@ function maskS2clouds(image) {
 }
 
 var addNDVI = function(image) {
-  var NDVI = image.normalizedDifference(['B8', 'B4']).rename('NDVI');
+  var NDVI = image.normalizedDifference(['B3', 'B8']).rename('NDVI');
   return image.addBands(NDVI);
 };
 
@@ -37,10 +37,10 @@ var select = sentinel2.first();
 var visualization = {
   min: -1,
   max: 1,
-  palette: ["red", "yellow", "green"],
+  palette: ['green', 'white', 'blue']
 };
 
-Map.addLayer(select.clip(aoi), visualization, "NDVI");
+Map.addLayer(select.clip(aoi), visualization, "Filtered");
 
 var batch = require("users/fitoprincipe/geetools:batch");
 var options = {

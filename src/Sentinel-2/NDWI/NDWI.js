@@ -37,10 +37,10 @@ var select = sentinel2.first();
 var visualization = {
   min: -1,
   max: 1,
-  palette: ["brown", "white", "blue"],
+  palette: ['green', 'white', 'blue']
 };
 
-Map.addLayer(select.clip(aoi), visualization, "NDWI");
+Map.addLayer(select.clip(aoi), visualization, "Filtered");
 
 var batch = require("users/fitoprincipe/geetools:batch");
 var options = {
